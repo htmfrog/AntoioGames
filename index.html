@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        background: lightblue;
+        font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+      }
+      header, footer {
+        background-color: #555;
+        color: white;
+        padding: 14px;
+      }
+      .tablink {
+        background-color: #555;
+        color: white;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        font-size: 17px;
+        width: 25%;
+      }
+      .tablink #btn3 {
+        width: 50%;
+      }
+      button {
+        background-color: DodgerBlue;
+        color: white;
+        border: none;
+        font-size: 17px;
+        padding: 14px;
+      }
+      button:hover {
+        background-color: RoyalBlue;
+      }
+      a button {
+        text-decoration: none;
+      }
+      .container {
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        padding: 10px;
+      }
+    </style>
+    <title>Antonio Games</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="files/img/favicon.png" rel="icon" type="image/png">
+  </head>
+  <body>
+    <header>
+      <h1>Antonio Games</h1>
+    </header>
+    <button class="tablink" onclick="openPage('Home', this, 'blue')" id="defaultOpen">Home</button>
+    <button class="tablink" onclick="openPage('Download', this, 'blue')">Download</button>
+    <button class="tablink" id="btn3" onclick="openPage('FAQ', this, 'blue')">FAQ</button>
+    <div id="Home" class="tabcontent">
+      <h3 style="text-align:center">Welcome!</h3>
+      <div align="center">
+        <img src="files/img/arcanine.jpg" width="400" alt="Arcanine">
+        <p>Welcome to Antonio Games, home of Arcanine World!</p>
+      </div>
+    </div>
+    <div id="Download" class="tabcontent">
+      <h3 style="text-align:center">Download</h3>
+      <div align="center">
+        <a href="files/game_src/ArcanineWorld.msi" download><button>Windows</button></a>
+        <a href="files/game_src/ArcanineWorld.dmg" download><button>Mac</button></a>
+      </div>
+    </div>
+    <div id="FAQ" class="tabcontent">
+      <h3 style="text-align:center">FAQ</h3>
+      <div class="container">
+        <div align="left">
+          <h4>What game engine was used to create the game?</h4>
+          <p>We used PlayCanvas to create the game. Then, we embedded it into app files for Windows and Mac.</p>
+          <h4>What is the game about?</h4>
+          <p>This is a free roam game.</p>
+        </div>
+      </div>
+      <br>
+    </div>
+    <footer>
+      <p>&copy;2019 Antonio Games</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+      var url = new URL("https://www.antoniogames.com");
+      function openPage(pageName,elmnt,color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+      }
+
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+    </script>
+  </body>
+</html>
